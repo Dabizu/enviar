@@ -17,20 +17,50 @@ let transporter = nodemailer.createTransport({
     }
 });
 
-// Opciones del correo
-let mailOptions = {
-    from: 'no-replay@puntotattoo.com.mx',
-    to: 'garciacornejod0@gmail.com',
-    subject: 'Correo de prueba',
-    text: 'Hola, este es un correo de prueba enviado desde Node.js usando Nodemailer.',
-    html: '<p>Hola, este es un correo de prueba enviado desde Node.js usando Nodemailer.</p>'
-};
 
-// Enviar el correo
-transporter.sendMail(mailOptions, (error, info) => {
-    if (error) {
-        console.log(error);
-    } else {
-        console.log('Correo enviado: ' + info.response);
-    }
+
+const express=require("express");
+const app=express();
+app.listen(process.env.PORT || 3000,()=>{console.log("se ejecuta el servidor")});
+
+app.post("/recuperar",(req,res)=>{
+    var correo=req.params("correo");
+    // Opciones del correo
+    let mailOptions = {
+        from: 'no-replay@puntotattoo.com.mx',
+        to: correo,
+        subject: 'Correo de prueba',
+        text: 'Recuperar cuenta',
+        html: '<p></p>'
+    };
+
+    // Enviar el correo
+    transporter.sendMail(mailOptions, (error, info) => {
+        if (error) {
+            console.log(error);
+        } else {
+            console.log('Correo enviado: ' + info.response);
+        }
+    });
 });
+
+app.post("/confirmar",(req,res)=>{
+    var correo=req.params("correo");
+    // Opciones del correo
+    let mailOptions = {
+        from: 'no-replay@puntotattoo.com.mx',
+        to: correo,
+        subject: 'Correo de prueba',
+        text: 'Recuperar cuenta',
+        html: '<p></p>'
+    };
+
+    // Enviar el correo
+    transporter.sendMail(mailOptions, (error, info) => {
+        if (error) {
+            console.log(error);
+        } else {
+            console.log('Correo enviado: ' + info.response);
+        }
+    });
+})
