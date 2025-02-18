@@ -57,7 +57,7 @@ app.post("/confirmar",(req,res)=>{
     let mailOptions = {
         from: 'no-replay@puntotattoo.com.mx',
         to: correo,
-        subject: 'Bienvenido a punto tattoo.',
+        subject: 'Bienvenido a punto tattoo',
         text: 'Recuperar cuenta',
         html: '<div style="width: 400px; height: 400px; margin: 0 auto;">'+
                 '<h1>Confirmación de cuenta</h1>'+
