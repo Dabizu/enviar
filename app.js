@@ -57,11 +57,14 @@ app.post("/confirmar",(req,res)=>{
     let mailOptions = {
         from: 'no-replay@puntotattoo.com.mx',
         to: correo,
-        subject: 'Correo de prueba',
+        subject: 'Bienvenido a punto tattoo.',
         text: 'Recuperar cuenta',
         html: '<div style="width: 400px; height: 400px; margin: 0 auto;">'+
                 '<h1>Confirmación de cuenta</h1>'+
-                '<p>Para confirmar su cuenta puntotattoo y activarla de click <a href="https://back.puntotattoo.com.mx/api/confirmarCuenta?verificar=1&email='+correo+'">AQUI</a></p></div>'
+                '<p>Hola artista bienvenido a punto tattoo, es un placer para nosotros poder ayudar con toda tu gestión al mismo tiempo que conectamos con nuevos clientes dentro de la plataforma!\n'+
+                'Es necesario que termines de llenar tu perfil, una vez que esté completo lo revisaremos y sete aceptará en un lapso de 1 a 3 días hábiles, así tu estudio virtual será visible para todos y tendrás las nuevas herramientas disponibles en tu panel.\n'+
+                'Mira cómo terminar de editar tu perfil: https://youtu.be/PhDis9b9JFs?si=jDdLV_qOz4OY2bdd </p>'
+                //'<p>Para confirmar su cuenta puntotattoo y activarla de click <a href="https://back.puntotattoo.com.mx/api/confirmarCuenta?verificar=1&email='+correo+'">AQUI</a></p></div>'
     };
 
     // Enviar el correo
