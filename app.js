@@ -45,6 +45,8 @@ app.post("/recuperar",(req,res)=>{
             console.log('Correo enviado: ' + info.response);
         }
     });
+
+    res.send("1");
 });
 
 app.post("/confirmar",(req,res)=>{
