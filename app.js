@@ -49,7 +49,6 @@ app.post("/recuperar",(req,res)=>{
 
 app.post("/confirmar",(req,res)=>{
     var correo=req.params("correo");
-    var id=req.param("id");
     // Opciones del correo
     let mailOptions = {
         from: 'no-replay@puntotattoo.com.mx',
@@ -58,7 +57,7 @@ app.post("/confirmar",(req,res)=>{
         text: 'Recuperar cuenta',
         html: '<div style="width: 400px; height: 400px; margin: 0 auto;">'+
                 '<h1>Confirmación de cuenta</h1>'+
-                '<p>Para confirmar su cuenta puntotattoo y activarla de click <a href="https://back.puntotattoo.com.mx/api/confirmarCuenta?verificar=1&id='+id+'">AQUI</a></p></div>'
+                '<p>Para confirmar su cuenta puntotattoo y activarla de click <a href="https://back.puntotattoo.com.mx/api/confirmarCuenta?verificar=1&email='+correo+'">AQUI</a></p></div>'
     };
 
     // Enviar el correo
