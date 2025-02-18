@@ -52,7 +52,7 @@ app.post("/recuperar",(req,res)=>{
 });
 
 app.post("/confirmar",(req,res)=>{
-    var correo=req.params("correo");
+    var correo=req.param("correo");
     // Opciones del correo
     let mailOptions = {
         from: 'no-replay@puntotattoo.com.mx',
