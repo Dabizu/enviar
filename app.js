@@ -24,14 +24,17 @@ const app=express();
 app.listen(process.env.PORT || 3000,()=>{console.log("se ejecuta el servidor")});
 
 app.post("/recuperar",(req,res)=>{
-    var correo=req.params("correo");
+    var correo=req.param("correo");
+    var id=req.param("id");
     // Opciones del correo
     let mailOptions = {
         from: 'no-replay@puntotattoo.com.mx',
         to: correo,
         subject: 'Correo de prueba',
         text: 'Recuperar cuenta',
-        html: '<p></p>'
+        html: '<div style="width: 400px; height: 400px; margin: 0 auto;">'+
+            '<center><h1>Recupera password</h1></center>'+
+            '<p>Hola bienvenido al sistema de recuperacion de password de puntotattoo este correo es para recupera tu cuenta con un solo click iras a una pagina externa da click <a href="https://panel.puntotattoo.com.mx/authentication/flows/basic/recoverAccount.php?user="'+id+'>Aqui</a> para recuperar tu cuenta</p></div>'
     };
 
     // Enviar el correo
@@ -52,7 +55,9 @@ app.post("/confirmar",(req,res)=>{
         to: correo,
         subject: 'Correo de prueba',
         text: 'Recuperar cuenta',
-        html: '<p></p>'
+        html: '<div style="width: 400px; height: 400px; margin: 0 auto;">'+
+                '<h1>Confirmación de cuenta</h1>'+
+                '<p>Para confirmar su cuenta puntotattoo y activarla de click <a href="https://back.puntotattoo.com.mx/api/confirmarCuenta?verificar=1&id=26">AQUI</a></p></div>'
     };
 
     // Enviar el correo
@@ -63,4 +68,8 @@ app.post("/confirmar",(req,res)=>{
             console.log('Correo enviado: ' + info.response);
         }
     });
-})
+});
+
+app.get("/pagina",(req,res)=>{
+    res.sendFile(__dirname+"/modelo.html");
+});
