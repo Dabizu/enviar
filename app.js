@@ -30,7 +30,7 @@ app.post("/recuperar",(req,res)=>{
     var id=req.param("id");
     // Opciones del correo
     let mailOptions = {
-        from: 'no-replay@puntotattoo.com.mx',
+        from: '"Punto tattoo" <no-replay@puntotattoo.com.mx>',
         to: correo,
         subject: 'Correo de prueba',
         text: 'Recuperar cuenta',
@@ -56,7 +56,7 @@ app.post("/recuperarCliente",(req,res)=>{
     var id=req.param("id");
     // Opciones del correo
     let mailOptions = {
-        from: 'no-replay@puntotattoo.com.mx',
+        from: '"Punto tattoo" <no-replay@puntotattoo.com.mx>',
         to: correo,
         subject: 'Correo de prueba',
         text: 'Recuperar cuenta',
@@ -81,7 +81,7 @@ app.post("/mensajeAdmin",(req,res)=>{
     var correo=req.param("correo");
     // Opciones del correo
     let mailOptions = {
-        from: 'no-replay@puntotattoo.com.mx',
+        from: '"Punto tattoo" <no-replay@puntotattoo.com.mx>',
         to: correo,
         subject: 'Bienvenido a punto tattoo',
         text: 'Recuperar cuenta',
@@ -108,7 +108,7 @@ app.post("/confirmar",(req,res)=>{
     var correo=req.param("correo");
     // Opciones del correo
     let mailOptions = {
-        from: 'no-replay@puntotattoo.com.mx',
+        from: '"Punto tattoo" <no-replay@puntotattoo.com.mx>',
         to: correo,
         subject: 'Bienvenido a punto tattoo',
         text: 'Recuperar cuenta',
@@ -135,7 +135,7 @@ app.post("/confirmarCliente",(req,res)=>{
     var correo=req.param("correo");
     // Opciones del correo
     let mailOptions = {
-        from: 'no-replay@puntotattoo.com.mx',
+        from: '"Punto tattoo" <no-replay@puntotattoo.com.mx>',
         to: correo,
         subject: 'Bienvenido a punto tattoo',
         text: 'Recuperar cuenta',
