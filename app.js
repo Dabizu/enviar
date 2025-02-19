@@ -77,6 +77,33 @@ app.post("/recuperarCliente",(req,res)=>{
     res.send("1");
 });
 
+app.post("/mensajeAdmin",(req,res)=>{
+    var correo=req.param("correo");
+    // Opciones del correo
+    let mailOptions = {
+        from: 'no-replay@puntotattoo.com.mx',
+        to: correo,
+        subject: 'Bienvenido a punto tattoo',
+        text: 'Recuperar cuenta',
+        html: '<div style="width: 400px; height: 400px; margin: 0 auto;">'+
+                '<h3>¡Felicidades! Tu perfil ha sido aceptado en la plataforma, ahora ya puedes gozar de todas las herramientas que punto tattoo tiene para ofrecerte. </h3>'+
+                '<p>Tu plan actual es básico, si requieres un cambio de plan a premium por favor indícalo para actualizar tu cuenta, puedes consultar los beneficios aquí: app.puntotattoo.com.mx/partners  </p>'+
+                '<p>No olvides terminar de llenar tu perfil y unificar tu agenda para poder explotar al máximo las herramientas que punto tattoo te ofrece, te dejo nuestro canal de youtube donde podrás ver tutoriales para editar todas las áreas correspondientes de tu panel administrativo. </p>'+
+                '<p>Tutoriales: https://www.youtube.com/@PuntoTattooPartners </p></div>'
+                //'<p>Para confirmar su cuenta puntotattoo y activarla de click <a href="https://back.puntotattoo.com.mx/api/confirmarCuenta?verificar=1&email='+correo+'">AQUI</a></p></div>'
+    };
+
+    // Enviar el correo
+    transporter.sendMail(mailOptions, (error, info) => {
+        if (error) {
+            console.log(error);
+        } else {
+            console.log('Correo enviado: ' + info.response);
+        }
+    });
+    res.send("1");
+});
+
 app.post("/confirmar",(req,res)=>{
     var correo=req.param("correo");
     // Opciones del correo
