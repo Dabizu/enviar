@@ -101,6 +101,7 @@ app.post("/confirmar",(req,res)=>{
             console.log('Correo enviado: ' + info.response);
         }
     });
+    res.send("1");
 });
 
 app.post("/confirmarCliente",(req,res)=>{
@@ -126,6 +127,7 @@ app.post("/confirmarCliente",(req,res)=>{
             console.log('Correo enviado: ' + info.response);
         }
     });
+    res.send("1");
 });
 
 app.get("/pagina",(req,res)=>{
