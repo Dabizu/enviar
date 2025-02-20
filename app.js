@@ -163,7 +163,7 @@ app.post("/notificarArtista",(req,res)=>{
     let mailOptions = {
         from: '"Punto tattoo" <no-replay@puntotattoo.com.mx>',
         to: correo,
-        subject: 'Bienvenido a punto tattoo',
+        subject: 'Cita nueva',
         text: 'Recuperar cuenta',
         html: '<div style="width: 400px; height: 400px; margin: 0 auto;">'+
                 '<h3>Tienes una nueva cita agendada, revisa ahora en tu panel.</h3></div>'
