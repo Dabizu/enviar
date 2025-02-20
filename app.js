@@ -163,10 +163,10 @@ app.post("/notificarArtista",(req,res)=>{
     let mailOptions = {
         from: '"Punto tattoo" <no-replay@puntotattoo.com.mx>',
         to: correo,
-        subject: 'Cita nueva',
-        text: 'Recuperar cuenta',
+        subject: ' ¡Tienes una nueva cita! ',
+        text: ' ¡Tienes una nueva cita! ',
         html: '<div style="width: 400px; height: 400px; margin: 0 auto;">'+
-                '<h3>Tienes una nueva cita agendada, revisa ahora en tu panel.</h3></div>'
+                '<h3>Tienes una nueva cita agendada, revisala ahora en tu panel: panel.puntotattoo.com.mx/authentication/flows/basic/sign-in.html </h3></div>'
                 //'<p>Para confirmar su cuenta puntotattoo y activarla de click <a href="https://back.puntotattoo.com.mx/api/confirmarCuenta?verificar=1&email='+correo+'">AQUI</a></p></div>'
     };
 
@@ -188,10 +188,10 @@ app.post("/notificarUsuario",(req,res)=>{
     let mailOptions = {
         from: '"Punto tattoo" <no-replay@puntotattoo.com.mx>',
         to: correo,
-        subject: 'Bienvenido a punto tattoo',
-        text: 'Recuperar cuenta',
+        subject: ' ¡Tu cita esta lista! ',
+        text: ' ¡Tu cita esta lista! ',
         html: '<div style="width: 400px; height: 400px; margin: 0 auto;">'+
-                '<h3>Tu cita se agendo con éxito y se notificó a tu artista, revisala ahora en tu cuenta</h3></div>'
+                '<h3>Tu cita se agendo con éxito y se notificó a tu artista, revisala ahora en tu cuenta: app.puntotattoo.com.mx/sing-in.html </h3></div>'
                 //'<p>Para confirmar su cuenta puntotattoo y activarla de click <a href="https://back.puntotattoo.com.mx/api/confirmarCuenta?verificar=1&email='+correo+'">AQUI</a></p></div>'
     };
 
