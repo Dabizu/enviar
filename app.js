@@ -206,6 +206,31 @@ app.post("/notificarUsuario",(req,res)=>{
     res.send("1");
 });
 
+//notificaciones al cliente que faltan 3 dias
+app.post("/notificarClienteTresDias",(req,res)=>{
+    var correo=req.param("correo");
+    // Opciones del correo
+    let mailOptions = {
+        from: '"Punto tattoo" <no-replay@puntotattoo.com.mx>',
+        to: correo,
+        subject: ' ¡Tu cita se aproxima! ',
+        text: ' ¡Tienes una nueva cita! ',
+        html: '<div style="width: 400px; height: 400px; margin: 0 auto;">'+
+                '<h3>Faltan pocos días para tu cita con número (Id de cita), prepara todo y vamos por ello! </h3>'+
+                '<p>Puedes verla en tu panel en la tabla de citas próximas: panel.puntotattoo.com.mx/authentication/flows/basic/sign-in.html </p></div>'
+    };
+
+    // Enviar el correo
+    transporter.sendMail(mailOptions, (error, info) => {
+        if (error) {
+            console.log(error);
+        } else {
+            console.log('Correo enviado: ' + info.response);
+        }
+    });
+    res.send("1");
+});
+
 app.get("/pagina",(req,res)=>{
     res.sendFile(__dirname+"/modelo.html");
 });
