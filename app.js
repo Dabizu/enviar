@@ -156,6 +156,55 @@ app.post("/confirmarCliente",(req,res)=>{
     });
     res.send("1");
 });
+//notificaciones al artista
+app.post("/notificarArtista",(req,res)=>{
+    var correo=req.param("correo");
+    // Opciones del correo
+    let mailOptions = {
+        from: '"Punto tattoo" <no-replay@puntotattoo.com.mx>',
+        to: correo,
+        subject: 'Bienvenido a punto tattoo',
+        text: 'Recuperar cuenta',
+        html: '<div style="width: 400px; height: 400px; margin: 0 auto;">'+
+                '<h3>Tienes una nueva cita agendada, revisa ahora en tu panel.</h3></div>'
+                //'<p>Para confirmar su cuenta puntotattoo y activarla de click <a href="https://back.puntotattoo.com.mx/api/confirmarCuenta?verificar=1&email='+correo+'">AQUI</a></p></div>'
+    };
+
+    // Enviar el correo
+    transporter.sendMail(mailOptions, (error, info) => {
+        if (error) {
+            console.log(error);
+        } else {
+            console.log('Correo enviado: ' + info.response);
+        }
+    });
+    res.send("1");
+});
+
+//notificar al usuario cliente
+app.post("/notificarUsuario",(req,res)=>{
+    var correo=req.param("correo");
+    // Opciones del correo
+    let mailOptions = {
+        from: '"Punto tattoo" <no-replay@puntotattoo.com.mx>',
+        to: correo,
+        subject: 'Bienvenido a punto tattoo',
+        text: 'Recuperar cuenta',
+        html: '<div style="width: 400px; height: 400px; margin: 0 auto;">'+
+                '<h3>Tu cita se agendo con éxito y se notificó a tu artista, revisala ahora en tu cuenta</h3></div>'
+                //'<p>Para confirmar su cuenta puntotattoo y activarla de click <a href="https://back.puntotattoo.com.mx/api/confirmarCuenta?verificar=1&email='+correo+'">AQUI</a></p></div>'
+    };
+
+    // Enviar el correo
+    transporter.sendMail(mailOptions, (error, info) => {
+        if (error) {
+            console.log(error);
+        } else {
+            console.log('Correo enviado: ' + info.response);
+        }
+    });
+    res.send("1");
+});
 
 app.get("/pagina",(req,res)=>{
     res.sendFile(__dirname+"/modelo.html");
