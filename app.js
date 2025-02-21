@@ -248,7 +248,8 @@ app.post("/notificarClienteTresDias",(req,res)=>{
         text: ' ¡Tienes una nueva cita! ',
         html: '<div style="width: 400px; height: 400px; margin: 0 auto;">'+
                 '<h3> ¡Tu cita con '+nombre+' se aproxima! </h3>'+
-                '<p> Faltan pocos días para tu cita, estamos muy emocionados por tu próximo tatuaje, prepárate! </p></div>'
+                '<p> Faltan pocos días para tu cita, estamos muy emocionados por tu próximo tatuaje, prepárate! </p>'+
+                '<p>Puedes ver tu cita en tu cuenta:app.puntotattoo.com.mx/sing-in.html</p></div>'
     };
 
     // Enviar el correo
