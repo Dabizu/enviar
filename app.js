@@ -214,6 +214,7 @@ app.post("/notificarUsuario",(req,res)=>{
 //notificaciones al cliente que faltan 3 dias
 app.post("/notificarClienteTresDias",(req,res)=>{
     var correo=req.param("correo");
+    var idCita=req.param("id");
     // Opciones del correo
     let mailOptions = {
         from: '"Punto tattoo" <no-replay@puntotattoo.com.mx>',
@@ -221,7 +222,7 @@ app.post("/notificarClienteTresDias",(req,res)=>{
         subject: ' ¡Tu cita se aproxima! ',
         text: ' ¡Tienes una nueva cita! ',
         html: '<div style="width: 400px; height: 400px; margin: 0 auto;">'+
-                '<h3>Faltan pocos días para tu cita con número (Id de cita), prepara todo y vamos por ello! </h3>'+
+                '<h3>Faltan pocos días para tu cita con número '+idCita+', prepara todo y vamos por ello! </h3>'+
                 '<p>Puedes verla en tu panel en la tabla de citas próximas: panel.puntotattoo.com.mx/authentication/flows/basic/sign-in.html </p></div>'
     };
 
