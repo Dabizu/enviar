@@ -4,6 +4,14 @@ private $user = 'no-replay@puntotattoo.com.mx';
 private $pass = 'jxf*E717lAjxf*E717lA';
 private $host = 'c2610354.ferozo.com';
 */
+const express=require("express");
+const cors=require("cors");
+const app=express();
+app.use(cors({
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type', 'Authorization']
+}));
+
 const nodemailer = require('nodemailer');
 
 // Configuración del transportador SMTP
@@ -19,10 +27,7 @@ let transporter = nodemailer.createTransport({
 
 
 
-const express=require("express");
-const cors=require("cors");
-const app=express();
-app.use(cors());
+
 app.listen(process.env.PORT || 3000,()=>{console.log("se ejecuta el servidor")});
 
 app.post("/recuperar",(req,res)=>{
