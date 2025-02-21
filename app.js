@@ -247,7 +247,7 @@ app.post("/notificarClienteTresDias",(req,res)=>{
         subject: ' ¡Tu cita con '+nombre+' se aproxima! ',
         text: ' ¡Tienes una nueva cita! ',
         html: '<div style="width: 400px; height: 400px; margin: 0 auto;">'+
-                '<h3> ¡Tu cita con (nombre artista) se aproxima! </h3>'+
+                '<h3> ¡Tu cita con '+nombre+' se aproxima! </h3>'+
                 '<p> Faltan pocos días para tu cita, estamos muy emocionados por tu próximo tatuaje, prepárate! </p></div>'
     };
 
