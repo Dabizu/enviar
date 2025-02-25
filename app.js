@@ -263,6 +263,58 @@ app.post("/notificarClienteTresDias",(req,res)=>{
     res.send("1");
 });
 
+//mandar cita el dia de su cita 5 horas antes
+app.post("/notificarArtistaDiaDeCita",(req,res)=>{
+    var correo=req.param("correo");
+    var idCita=req.param("id");
+    // Opciones del correo
+    let mailOptions = {
+        from: '"Punto tattoo" <no-replay@puntotattoo.com.mx>',
+        to: correo,
+        subject: ' ¡Hoy tienes una cita! ',
+        text: ' ¡Hoy tienes una cita! ',
+        html: '<div style="width: 400px; height: 400px; margin: 0 auto;">'+
+                '<h3> ¡Prepara todo! Hoy tienes tu cita con número '+idCita+', suerte. </h3>'+
+                '<p> Puedes verla en tu panel en la tabla de citas próximas: panel.puntotattoo.com.mx/authentication/flows/basic/sign-in.html  </p></div>'
+    };
+
+    // Enviar el correo
+    transporter.sendMail(mailOptions, (error, info) => {
+        if (error) {
+            console.log(error);
+        } else {
+            console.log('Correo enviado: ' + info.response);
+        }
+    });
+    res.send("1");
+});
+
+app.post("/notificarClienteDiaDeCita",(req,res)=>{
+    var correo=req.param("correo");
+    var nombre=req.param("nombre");
+    // Opciones del correo
+    let mailOptions = {
+        from: '"Punto tattoo" <no-replay@puntotattoo.com.mx>',
+        to: correo,
+        subject: ' ¡Hoy tienes una cita con '+nombre+'! ',
+        text: ' ¡Hoy tienes una cita! ',
+        html: '<div style="width: 400px; height: 400px; margin: 0 auto;">'+
+                '<h3> Hoy es el gran dia, preparate para tu tatuaje, todo saldrá excelente! </h3>'+
+                '<p> Puedes ver tu cita en tu cuenta:app.puntotattoo.com.mx/sing-in.html  </p>'+
+                '<p>Detalles generales de tu artista: (mandar link del perfil del artista con el que agendo) </p></div>'
+    };
+
+    // Enviar el correo
+    transporter.sendMail(mailOptions, (error, info) => {
+        if (error) {
+            console.log(error);
+        } else {
+            console.log('Correo enviado: ' + info.response);
+        }
+    });
+    res.send("1");
+});
+
 app.get("/pagina",(req,res)=>{
     res.sendFile(__dirname+"/modelo.html");
 });
