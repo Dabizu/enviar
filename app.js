@@ -314,7 +314,7 @@ app.post("/notificarClienteDiaDeCita",(req,res)=>{
     });
     res.send("1");
 });
-//me faltan todas estas ara poder mostrar en la api
+//me faltan todas estas para poder mostrar en la api
 //7 semandara al cliente diciendole que se a cambiado la cita por causas de fuerza mayor
 app.post("/notificarCambioFechaCliente",(req,res)=>{
     var correo=req.param("correo");
@@ -341,7 +341,7 @@ app.post("/notificarCambioFechaCliente",(req,res)=>{
     });
     res.send("1");
 });
-
+//pendiente en el server para hacer las demas
 //8 se le mandara al cliente que se deber reagendar su cita o perdera su oportunidad para reagendarla
 app.post("/notificarSeguimientoSolicitudReagenda",(req,res)=>{
     var correo=req.param("correo");
@@ -368,7 +368,7 @@ app.post("/notificarSeguimientoSolicitudReagenda",(req,res)=>{
     });
     res.send("1");
 });
-
+//pendiente
 //9 mandar a artista que se a reagendado la cita
 app.post("/notificarReagendarArtista",(req,res)=>{
     var correo=req.param("correo");
