@@ -482,6 +482,7 @@ app.post("/notificarCitaConcluidaArtista",(req,res)=>{
 app.post("/notificarCitaConcluidaUsuario",(req,res)=>{
     var correo=req.param("correo");
     var nombreArtista=req.param("nombreArtista");
+    var idArtista=req.param("idArtista");
     // Opciones del correo
     let mailOptions = {
         from: '"Punto tattoo" <no-replay@puntotattoo.com.mx>',
@@ -491,7 +492,8 @@ app.post("/notificarCitaConcluidaUsuario",(req,res)=>{
         html: '<div style="width: 400px; height: 400px; margin: 0 auto;">'+
                 '<h3> Tu opinión es lo más importante para que tu artista siga creciendo y mejorando cada día.  </h3>'+
                 '<p> Por favor comparte tu experiencia de cómo fue su trato, el resultado de tu tatuaje, asi como tu experiencia en general y lo que mas te gusto de tatuarte con '+nombreArtista+' </p>'+
-                '<p> Publica la foto de tu tatuaje y deja tu opinión aquí: <span style="color:red;">(Hay que crear esta sección en cada estudio virtual de los artistas y direccionar a los clientes ahí)</span></p></div>'
+                '<p> Publica la foto de tu tatuaje y deja tu opinión aquí: <span style="color:red;">(Hay que crear esta sección en cada estudio virtual de los artistas y direccionar a los clientes ahí)</span></p>'+
+                '<p>app.puntotattoo.com.mx/opiniones.php?user='+idArtista+'</div>'
     };
 
     // Enviar el correo
