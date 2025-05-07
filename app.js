@@ -4,6 +4,7 @@ private $user = 'no-replay@puntotattoo.com.mx';
 private $pass = 'jxf*E717lAjxf*E717lA';
 private $host = 'c2610354.ferozo.com';
 */
+/*
 const express=require("express");
 const cors=require("cors");
 const app=express();
@@ -565,4 +566,4 @@ app.post("/notificarCitaCanceladaUsuario",(req,res)=>{
 
 app.get("/pagina",(req,res)=>{
     res.sendFile(__dirname+"/modelo.html");
-});
+});*/
